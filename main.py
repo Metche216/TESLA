@@ -39,8 +39,15 @@ ts_sorted = sorted(time_series)
 #if today_price > yesterday_price*1.05 or today_price < yesterday_price*0.95:
     
 response = requests.get(news_url, params=news_parameters)
-data = response.json()
-print(data)
+data = response.json()['articles']
+
+for article in data:
+    print(article)
+
+# with open("news_data.json", "w",  encoding='utf-8') as news_data:
+#     news_data.write()
+
+
 
 
 
